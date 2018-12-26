@@ -18,22 +18,40 @@ function addToCart(itemName) {
  return`${itemName} has been added to your cart.`
 }
 
-function viewCart() {
-  let result = 'In your cart, you have '; 
-  if(cart.length === 0 ) {
-    result = 'Your shopping cart is empty.';
-    return result;
- } else if (cart.length === 1) {
-    result = (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`); 
-    return result;
-  } else if (cart.length === 2) {
-    result = (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`);
-    return result;
-  } else if (cart.length === 3) {
-    result = (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`); 
-    return result;
+// function viewCart() {
+//   let result = 'In your cart, you have '; 
+//   if(cart.length === 0 ) {
+//     result = 'Your shopping cart is empty.';
+//     return result;
+// } else if (cart.length === 1) {
+//     result = (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}.`); 
+//     return result;
+//   } else if (cart.length === 2) {
+//     result = (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, and ${cart[1].itemName} at $${cart[1].itemPrice}.`);
+//     return result;
+//   } else if (cart.length === 3) {
+//     result = (`In your cart, you have ${cart[0].itemName} at $${cart[0].itemPrice}, ${cart[1].itemName} at $${cart[1].itemPrice}, and ${cart[2].itemName} at $${cart[2].itemPrice}.`); 
+//     return result;
+//   }
+// } 
+
+function viewCart(){
+  let result = "In your cart, you have "
+  if(cart.length === 0){
+    result ="Your shopping cart is empty."
+  }else{
+    if(cart.length === 1){
+      result = result + cart[0].itemName +" at $" +cart[0].itemPrice+"."
+    }else{
+      for(var i = 0; i < cart.length-1; i++){
+           result = result + cart[i].itemName +" at $" +cart[i].itemPrice+", "
+      }
+      console.log(cart.length)
+      result = result + "and " + cart[cart.length-1].itemName + " at $"+cart[cart.length-1].itemPrice+"."
+    }
   }
-} 
+  return result;
+}
 
 function total() {
   var totalResult = 0;
@@ -67,6 +85,18 @@ function placeOrder(cardNumber) {
    return `Your total cost is $${newTotal}, which will be charged to the card ${cardNumber}.`
     }
 }
+
+// addToCart("banana")
+// addToCart("carrot")
+// addToCart("orange")
+// addToCart("mango")
+// addToCart("banana")
+// addToCart("carrot")
+// addToCart("orange")
+// addToCart("mango")
+
+// var result = viewCart();
+// console.log(result)
 
 // function viewCart() {
 //   // if(cart.length === 0) {
